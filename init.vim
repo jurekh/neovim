@@ -1,55 +1,51 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
 call plug#end()
 
-" Disable linebreaks in the middle of a word
-set linebreak
+filetype plugin indent on " Enable language dependent indenting
+syntax on " Enable syntax highligting
+set encoding=UTF-8
+set autoread
 
-" Enable syntax highligting
-syntax on
-
-" Highlight the line with cursor
-" set cursorline
-
-" Enable language dependent indenting
-filetype plugin indent on
-
-" Highlight all pattern matches
-set hlsearch
-
-" Start searching immediately when typing
-set incsearch
-
-" Extend command history
-set history=700
-
-" Display cursor location in status line
-set ruler
-
-" Show command at the bottom of the screen
-set showcmd
-
-" Copy indent when entering a new line
-set autoindent
-
-" Briefly (0.2 seconds) jump to matching bracket when typing
-set showmatch
+set linebreak " Disable linebreaks in the middle of a word
+set hlsearch " Highlight all pattern matches
+set hls is " Search highlights as we type
+set incsearch " Start searching immediately when typing
+set history=700 " Extend command history
+set ruler " Display cursor location in status line
+set showcmd " Show command at the bottom of the screen
+set autoindent " Copy indent when entering a new line
+set showmatch " Briefly (0.2 seconds) jump to matching bracket when typing
 set matchtime=2
-
-" Use 4 spaces as tabs
-set shiftwidth=4
+set shiftwidth=4 " Use 4 spaces as tab
+set tabstop=4
 set softtabstop=4
 set expandtab
+set ignorecase smartcase " Ignore case when pattern searching, become case sensitive when case mixed
+set showmode " Show current mode on last line
+set number " Show line numbers
+set laststatus=2
+set nowrap " No line wrapping
 
-" Ignore case when pattern searching, become case sensitive when case mixed
-set ignorecase smartcase
+" Find files in subdirectories
+set path+=**
+set wildmenu
 
-" Show current mode on last line
-set showmode
+" ---------------- Keyboard mappings ------------------
 
-" Show line numbers
-set number
+let mapleader=";"
+
+" Edit config
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+
+" Reload config
+map <C-s> :source ~/.config/nvim/init.vim<CR>
+
+" Toggle line numbers
+nnoremap <silent> <leader>n :set number! number?<CR>
+
+" Toggle line wrap
+nnoremap <silent> <leader>w :set wrap! wrap?<CR>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
