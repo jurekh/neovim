@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 filetype plugin indent on " Enable language dependent indenting
@@ -31,6 +32,17 @@ set nowrap " No line wrapping
 set path+=**
 set wildmenu
 
+let g:netrw_banner=0 " Disable netrw banner. Toggle display with "I"
+
+
+" ---------------- Color scheme      ------------------
+set background=dark
+colorscheme palenight
+if (has("termguicolors"))
+    set termguicolors
+endif
+let g:palenight_terminal_italics=1
+
 " ---------------- Keyboard mappings ------------------
 
 let mapleader=";"
@@ -39,7 +51,7 @@ let mapleader=";"
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 
 " Reload config
-map <C-s> :source $MYVIMRC<CR>
+map <silent> <C-s> :source $MYVIMRC<CR>
 
 " Toggle line numbers
 nnoremap <silent> <leader>n :set number! number?<CR>
