@@ -39,7 +39,7 @@ let mapleader=";"
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 
 " Reload config
-map <C-s> :source ~/.config/nvim/init.vim<CR>
+map <C-s> :source $MYVIMRC<CR>
 
 " Toggle line numbers
 nnoremap <silent> <leader>n :set number! number?<CR>
@@ -69,4 +69,3 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-
