@@ -1,6 +1,9 @@
-call plug#begin()
+all plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 filetype plugin indent on " Enable language dependent indenting
@@ -42,6 +45,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 let g:palenight_terminal_italics=1
+let g:airline_theme="palenight"
 
 " ---------------- Keyboard mappings ------------------
 
@@ -68,6 +72,18 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Close window without requiring C-W, useful for Chrome SSH access
+nnoremap <silent> <leader>q :q<CR>
+
+" Navigate build errors
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" Build/run shortcuts for go
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run-split)
 
 " Clear search highlights
 noremap <silent> <Leader>/ :nohls<CR>
