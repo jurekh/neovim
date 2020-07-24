@@ -4,6 +4,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 filetype plugin indent on " Enable language dependent indenting
@@ -66,6 +67,17 @@ nnoremap <silent> <leader>w :set wrap! wrap?<CR>
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+
+" Copy to clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+vnoremap <leader>Y "+yg_
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
 
 " Navigate splits with <ctrl>-direction
 nnoremap <C-h> <C-w>h
