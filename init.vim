@@ -1,4 +1,4 @@
-all plug#begin()
+call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
